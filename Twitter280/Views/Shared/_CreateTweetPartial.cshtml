@@ -1,4 +1,4 @@
-﻿@model Twitter280.ViewModel.CreateTweetViewModel
+﻿@model CreateTweetViewModel
 
 <h1>Create tweet</h1>
 
@@ -12,8 +12,10 @@
 <p>
     @using (var frm = Html.BeginForm("index", "home"))
     {
-        @Html.AntiForgeryToken()
+        
         @Html.TextAreaFor(m => m.Status, new { @class = "ribbitText" })
         <input type="submit" value="Tweet"/>
+        
+        @Html.AntiForgeryToken()
     }
 </p>
