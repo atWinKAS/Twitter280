@@ -1,0 +1,24 @@
+﻿@model Twitter280.ViewModel.UserViewModel
+
+@{
+    ViewBag.Title = "UserProfile";
+}
+
+@section RightPanel
+{
+    @{
+        Html.RenderAction("Create", "Home");
+    }
+}
+
+@Html.Partial("_UserPartial", Model.User)
+
+
+<div class="panel left">
+    <h1>Tweets</h1>
+    @foreach (var tweet in Model.Tweets)
+    {
+        @Html.Partial("_TweetPartial", tweet)
+    }
+</div>
+

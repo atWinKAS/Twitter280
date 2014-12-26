@@ -1,0 +1,2 @@
+put gsx into content folder
+put scripts to scripts folder

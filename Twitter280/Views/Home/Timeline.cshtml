@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Tweet>
+
+@{
+    ViewBag.Title = "Timeline";
+}
+
+@section RightPanel{
+     @{
+        Html.RenderAction("Create");
+    }
+}
+
+@section LeftPanel
+{
+    @if (Model.Any())
+    {
+        foreach (var tweet in Model)
+        {
+            @Html.Partial("_TweetPartial", tweet);
+        }
+    }
+    else
+    {
+        <p> Make Tweet </p>
+    }
+}
+
