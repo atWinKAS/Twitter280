@@ -74,7 +74,8 @@ namespace Twitter280.Services
         {
             var user = users.Create(signupModel.Username, signupModel.Password, new UserProfile()
                                                                                 {
-                                                                                    Email = signupModel.Email
+                                                                                    Email = signupModel.Email,
+                                                                                    Name = signupModel.Username
                                                                                 });
             if (login)
             {

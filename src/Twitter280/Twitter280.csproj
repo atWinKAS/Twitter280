@@ -107,6 +107,7 @@
     <Content Include="gfx\frog.jpg" />
     <Content Include="gfx\logo-nettuts.png" />
     <Content Include="gfx\logo.png" />
+    <Content Include="gfx\t.jpg" />
     <Content Include="gfx\user1.png" />
     <Content Include="gfx\user2.png" />
     <Content Include="gfx\user3.png" />

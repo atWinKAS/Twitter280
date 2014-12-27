@@ -57,7 +57,7 @@ namespace Twitter280.Controllers
 
         [HttpPost]
         [ChildActionOnly]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public ActionResult Create(CreateTweetViewModel model)
         {
             if (ModelState.IsValid)
