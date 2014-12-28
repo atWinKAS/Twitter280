@@ -1,12 +1,12 @@
 ﻿@model User
 
-<div class="ribbitWrapper">
+<div class="twiWrapper">
     <img class="avatar" src="http://www.gravatar.com/avatar/@Model.Profile.GetEmailHash()" />
     <span class="name">@Html.RouteLink(Model.Profile.Name, "UserDefault", new { controller = "user", username = Model.Username, action = "index" })</span>
 
-    @@@Model.Username 
-    
-    
+    @@@Model.Username
+
+
     @Html.Partial("_FollowButtonPartial", Model)
 
     <p>

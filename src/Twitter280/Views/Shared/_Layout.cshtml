@@ -3,13 +3,13 @@
 <html>
 <head>
     <link rel="stylesheet/less" href="/style.less">
-    <script src="/less.js"></script>
+    <script src="~/Scripts/less.js"></script>
 </head>
 <body>
     <header>
         <div class="wrapper">
-            <img src="/gfx/logo.png">
-            <span>Twitter Clone</span>
+            @Html.ActionImage("Home", "Index", null, "~/Content/gfx/logo.png")
+            <span>Twi Clo</span>
 
             @if (Security.IsAuthenticated)
             {
@@ -61,7 +61,7 @@
     </div>
     <footer>
         <div class="wrapper">
-            Ribbit - A Twitter Clone Tutorial<img src="/gfx/logo-nettuts.png">
+            A Simple Twitter Clone<img src="~/Content/gfx/logo-nettuts.png">
         </div>
     </footer>
 </body>

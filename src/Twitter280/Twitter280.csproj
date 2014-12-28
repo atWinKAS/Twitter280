@@ -100,19 +100,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="gfx\bg-button.png" />
-    <Content Include="gfx\bg-footer.png" />
-    <Content Include="gfx\bg-header.png" />
-    <Content Include="gfx\bg.png" />
-    <Content Include="gfx\frog.jpg" />
-    <Content Include="gfx\logo-nettuts.png" />
-    <Content Include="gfx\logo.png" />
-    <Content Include="gfx\t.jpg" />
-    <Content Include="gfx\user1.png" />
-    <Content Include="gfx\user2.png" />
-    <Content Include="gfx\user3.png" />
+    <Content Include="Content\gfx\bg-button.png" />
+    <Content Include="Content\gfx\bg-footer.png" />
+    <Content Include="Content\gfx\bg-header.png" />
+    <Content Include="Content\gfx\logo-nettuts.png" />
+    <Content Include="Content\gfx\logo.png" />
+    <Content Include="Content\gfx\t.jpg" />
     <Content Include="Global.asax" />
-    <Content Include="less.js" />
+    <Content Include="Scripts\less.js" />
+    <None Include="Scripts\jquery-2.1.1.intellisense.js" />
+    <Content Include="Scripts\jquery-2.1.1.js" />
+    <Content Include="Scripts\jquery-2.1.1.min.js" />
     <Content Include="style.css">
       <DependentUpon>style.less</DependentUpon>
     </Content>
@@ -145,6 +143,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="HtmlExt.cs" />
     <Compile Include="LoggingGlobalFilterAttribute.cs" />
     <Compile Include="Models\Tweet.cs" />
     <Compile Include="Models\TweetExt.cs" />
@@ -175,7 +174,6 @@
   <ItemGroup>
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
-    <Content Include="gfx\Thumbs.db" />
     <Content Include="style.less" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
@@ -194,6 +192,7 @@
     <Content Include="Views\Shared\_UserPartial.cshtml" />
     <Content Include="Views\Shared\_FollowButtonPartial.cshtml" />
     <Content Include="Views\Profile\Index.cshtml" />
+    <Content Include="Scripts\jquery-2.1.1.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

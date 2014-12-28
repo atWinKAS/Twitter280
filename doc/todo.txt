@@ -1,2 +1,1 @@
-put gsx into content folder
-put scripts to scripts folder
+email when some one has registered
