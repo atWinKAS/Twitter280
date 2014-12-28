@@ -108,6 +108,8 @@
     <Content Include="Content\gfx\t.jpg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\less.js" />
+    <None Include="Properties\PublishProfiles\twi280 - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\twi280 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.1.js" />
     <Content Include="Scripts\jquery-2.1.1.min.js" />

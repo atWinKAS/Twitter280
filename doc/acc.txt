@@ -1,0 +1,4 @@
+db name: twiDBlogin
+db pass: tPa$$word 
+
+db conn: Server=tcp:m1zbyxhoaf.database.windows.net,1433;Database=twi280Af2NqEEhk4;User ID=twiDBlogin@m1zbyxhoaf;Password=tPa44word;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;
