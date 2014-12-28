@@ -26,11 +26,12 @@ namespace Twitter280.Services
             var msg = new StringBuilder();
             if (user != null)
             {
-                msg.AppendLine(string.Format("We have new user in Twitter Clone 280"));
+                subject += string.Format(". Userid: [{0}]", user.Id);
+                msg.AppendLine(string.Format("We have new user in Twitter Clone 280."));
                 msg.AppendLine(string.Format("Id={0}, Name={1}, Date={2},", user.Id, user.Username, user.DateCreated));
                 if (user.UserProfileId > 0 && user.Profile != null)
                 {
-                    msg.AppendLine(string.Format("ProfileId: {0}, Email: {1}", user.UserProfileId, user.Profile.Email));
+                    msg.AppendLine(string.Format(" ProfileId: {0}, Email: {1}", user.UserProfileId, user.Profile.Email));
                 }
             }
             else
