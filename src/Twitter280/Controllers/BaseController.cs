@@ -24,6 +24,8 @@ namespace Twitter280.Controllers
 
         public IUserProfileService ProfileSrvc { get; private set; }
 
+        public IEmailService EmailSrvc { get; private set; }
+
         public BaseController()
         {
             DataContext = new Context();
@@ -31,6 +33,7 @@ namespace Twitter280.Controllers
             TweetSrvc = new TweetService(DataContext);
             ProfileSrvc = new UserProfileService(DataContext);
             SecuritySrvc = new SecurityService(UserSrvc);
+            EmailSrvc = new EmailService();
             CurrentUser = SecuritySrvc.GetCurrentUser();
 
         }

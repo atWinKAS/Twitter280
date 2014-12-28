@@ -140,6 +140,8 @@
     <Compile Include="Data\UserActivityRepository.cs" />
     <Compile Include="Data\UserProfileRepository.cs" />
     <Compile Include="Data\UserRepository.cs" />
+    <Compile Include="Email\IMailSender.cs" />
+    <Compile Include="Email\MailSender.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -155,11 +157,13 @@
     <Compile Include="Services\ISecurityService.cs" />
     <Compile Include="Services\ITweetService.cs" />
     <Compile Include="Services\IUserActivityService.cs" />
+    <Compile Include="Services\IEmailService.cs" />
     <Compile Include="Services\IUserProfileService.cs" />
     <Compile Include="Services\IUserService.cs" />
     <Compile Include="Services\SecurityService.cs" />
     <Compile Include="Services\TweetService.cs" />
     <Compile Include="Services\UserActivityService.cs" />
+    <Compile Include="Services\EmailService.cs" />
     <Compile Include="Services\UserProfileService.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="Ui\TwitterViewPage.cs" />

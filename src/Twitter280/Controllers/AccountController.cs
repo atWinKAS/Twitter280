@@ -33,7 +33,11 @@ namespace Twitter280.Controllers
                 return this.View("Landing", model);
             }
 
-            SecuritySrvc.CreateUser(signup);
+            var newUser = SecuritySrvc.CreateUser(signup);
+            if (newUser != null)
+            {
+                EmailSrvc.NotifyAboutNewUser(newUser);
+            }
 
             return RedirectToAction("Index", "Home");
         }
