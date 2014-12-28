@@ -12,7 +12,7 @@ namespace Twitter280.Controllers
     {
         public ActionResult Index(string username)
         {
-            var user = Users.GetAllFor(username);
+            var user = UserSrvc.GetAllFor(username);
             if (user == null)
             {
                 return new HttpNotFoundResult();
@@ -23,7 +23,7 @@ namespace Twitter280.Controllers
 
         public ActionResult Followers(string username)
         {
-            var user = Users.GetAllFor(username);
+            var user = UserSrvc.GetAllFor(username);
             if (user == null)
             {
                 return new HttpNotFoundResult();
@@ -35,7 +35,7 @@ namespace Twitter280.Controllers
         public ActionResult Following(string username)
         {
 
-            var user = Users.GetAllFor(username);
+            var user = UserSrvc.GetAllFor(username);
             if (user == null)
             {
                 return new HttpNotFoundResult();

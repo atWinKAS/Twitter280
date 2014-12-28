@@ -12,12 +12,12 @@ namespace Twitter280.Controllers
     {
         public ActionResult Index()
         {
-            if (!Security.IsAuthenticated)
+            if (!SecuritySrvc.IsAuthenticated)
             {
                 return RedirectToAction("Index", "Home");
             }
 
-            var profile = Profiles.GetBy(CurrentUser.UserProfileId);
+            var profile = ProfileSrvc.GetBy(CurrentUser.UserProfileId);
 
             return this.View(new EditProfileViewModel
                                  {
@@ -34,7 +34,7 @@ namespace Twitter280.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(EditProfileViewModel model)
         {
-            if (!Security.IsAuthenticated)
+            if (!SecuritySrvc.IsAuthenticated)
             {
                 return RedirectToAction("Index", "Home");
             }
@@ -44,7 +44,7 @@ namespace Twitter280.Controllers
                 return this.View("Index", model);
             }
 
-            Profiles.Update(model);
+            ProfileSrvc.Update(model);
 
             return RedirectToAction("Index");
         }

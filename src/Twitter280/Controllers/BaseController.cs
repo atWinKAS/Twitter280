@@ -16,21 +16,22 @@ namespace Twitter280.Controllers
         protected IContext DataContext;
         public User CurrentUser { get; private set; }
 
-        public ISecurityService Security { get; private set; }
+        public ISecurityService SecuritySrvc { get; private set; }
 
-        public IUserService Users { get; private set; }
+        public IUserService UserSrvc { get; private set; }
 
-        public ITweetService Tweets { get; private set; }
-        public IUserProfileService Profiles { get; private set; }
+        public ITweetService TweetSrvc { get; private set; }
+
+        public IUserProfileService ProfileSrvc { get; private set; }
 
         public BaseController()
         {
             DataContext = new Context();
-            Users = new UserService(DataContext);
-            Tweets = new TweetService(DataContext);
-            Profiles = new UserProfileService(DataContext);
-            Security = new SecurityService(Users);
-            CurrentUser = Security.GetCurrentUser();
+            UserSrvc = new UserService(DataContext);
+            TweetSrvc = new TweetService(DataContext);
+            ProfileSrvc = new UserProfileService(DataContext);
+            SecuritySrvc = new SecurityService(UserSrvc);
+            CurrentUser = SecuritySrvc.GetCurrentUser();
 
         }
 

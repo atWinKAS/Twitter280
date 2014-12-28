@@ -14,7 +14,7 @@ namespace Twitter280.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult SignUp(LoginSignupViewModel model)
         {
-            if (Security.IsAuthenticated)
+            if (SecuritySrvc.IsAuthenticated)
             {
                 return RedirectToAction("Index", "Home");
             }
@@ -27,13 +27,13 @@ namespace Twitter280.Controllers
                 return this.View("Landing", model);
             }
 
-            if (Security.DoesUserExist(signup.Username))
+            if (SecuritySrvc.DoesUserExist(signup.Username))
             {
                 ModelState.AddModelError("Username", "Username is already taken");
                 return this.View("Landing", model);
             }
 
-            Security.CreateUser(signup);
+            SecuritySrvc.CreateUser(signup);
 
             return RedirectToAction("Index", "Home");
         }
@@ -42,7 +42,7 @@ namespace Twitter280.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(LoginSignupViewModel model)
         {
-            if (Security.IsAuthenticated)
+            if (SecuritySrvc.IsAuthenticated)
             {
                 return RedirectToAction("Index", "Home");
             }
@@ -55,13 +55,13 @@ namespace Twitter280.Controllers
                 return this.View("Landing", model);
             }
 
-            if (!Security.Authenticate(login.Username, login.Password))
+            if (!SecuritySrvc.Authenticate(login.Username, login.Password))
             {
                 ModelState.AddModelError("Username", "Username and/or password is not correct");
                 return this.View("Landing", model);
             }
 
-            Security.Login(login.Username);
+            SecuritySrvc.Login(login.Username);
 
             return this.GoToReferrer();
         }
@@ -70,7 +70,7 @@ namespace Twitter280.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Logout()
         {
-            Security.Logout();
+            SecuritySrvc.Logout();
             return RedirectToAction("Index", "Home");
         }
     }

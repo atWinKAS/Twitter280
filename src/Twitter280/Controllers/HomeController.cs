@@ -17,34 +17,34 @@ namespace Twitter280.Controllers
 
         public ActionResult Index()
         {
-            if (!Security.IsAuthenticated)
+            if (!SecuritySrvc.IsAuthenticated)
             {
                 return this.View("Landing", new LoginSignupViewModel());
             }
 
-            var timeline = Tweets.GetTimelineFor(Security.UserId).ToArray();
+            var timeline = TweetSrvc.GetTimelineFor(SecuritySrvc.UserId).ToArray();
             return this.View("Timeline", timeline);
         }
 
         public ActionResult Followers()
         {
-            if (!Security.IsAuthenticated)
+            if (!SecuritySrvc.IsAuthenticated)
             {
                 return RedirectToAction("Index");
             }
 
-            var user = Users.GetAllFor(Security.UserId);
+            var user = UserSrvc.GetAllFor(SecuritySrvc.UserId);
             return this.View("Buddies", new BuddiesViewModel() { User = user, Buddies = user.Followers });
         }
 
         public ActionResult Following()
         {
-            if (!Security.IsAuthenticated)
+            if (!SecuritySrvc.IsAuthenticated)
             {
                 return RedirectToAction("Index");
             }
 
-            var user = Users.GetAllFor(Security.UserId);
+            var user = UserSrvc.GetAllFor(SecuritySrvc.UserId);
             return this.View("Buddies", new BuddiesViewModel() { User = user, Buddies = user.Followings });
         }
 
@@ -62,7 +62,7 @@ namespace Twitter280.Controllers
         {
             if (ModelState.IsValid)
             {
-                Tweets.Create(Security.UserId, model.Status);
+                TweetSrvc.Create(SecuritySrvc.UserId, model.Status);
                 Response.Redirect("/");
             }
 
@@ -73,12 +73,12 @@ namespace Twitter280.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Follow(string username)
         {
-            if (!Security.IsAuthenticated)
+            if (!SecuritySrvc.IsAuthenticated)
             {
                 return this.RedirectToAction("Index");
             }
 
-            Users.Follow(username, Security.GetCurrentUser());
+            UserSrvc.Follow(username, SecuritySrvc.GetCurrentUser());
 
             return this.GoToReferrer();
         }
@@ -87,19 +87,19 @@ namespace Twitter280.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Unfollow(string username)
         {
-            if (!Security.IsAuthenticated)
+            if (!SecuritySrvc.IsAuthenticated)
             {
                 return this.RedirectToAction("Index");
             }
 
-            Users.Unfollow(username, Security.GetCurrentUser());
+            UserSrvc.Unfollow(username, SecuritySrvc.GetCurrentUser());
 
             return this.GoToReferrer();
         }
 
         public ActionResult Profiles()
         {
-            var users = Users.All(true);
+            var users = UserSrvc.All(true);
             return this.View(users);
         }
     }
