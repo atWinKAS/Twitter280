@@ -20,5 +20,11 @@ namespace Twitter280
             RouteConfig.RegisterRoutes(RouteTable.Routes);            
             GlobalFilters.Filters.Add(new LoggingGlobalFilterAttribute());
         }
+
+        void Application_Error()
+        {
+            var ex = Server.GetLastError();
+            //log the error!
+        }
     }
 }
